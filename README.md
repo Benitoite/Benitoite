@@ -1,6 +1,6 @@
 ### Hi there 👋
 - 🔭 I’m currently working on https://r42.us
-- 🔭 I’m currently working on https://kd6kxr.us/wx 
+- 🔭 I’m currently working on http://kd6kxr.us/wx.html 
 - 🔭 I’m currently working on https://a2939.github.io
 - 🔭 I’m currently working on https://github.com/Beep6581/RawTherapee/tree/dev/tools/osx
 - 👯 https://github.com/Beep6581/RawTherapee/commits/dev/tools/osx
