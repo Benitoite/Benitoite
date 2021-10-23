@@ -22,6 +22,17 @@ cite {color: rgb(86, 86, 179);}
 
     
     <style>
+                                                #wrap {  
+                        width: 100%;
+                        height: 750px;
+                        width: 755px;
+                        padding: 0;
+                        overflow: hidden;
+                        border-style: none;
+                        color: cyan;
+                }
+        
+        
                             #precip {
 
                         width: 500px;
@@ -87,8 +98,8 @@ cite {color: rgb(86, 86, 179);}
     </style>
     <table>
     <tr>
-        <td align="left" style="width:750px;vertical-align: top;"><iframe id="barbs" src="https://r42.us/barbs"  width=750 height=950></iframe></td>
-        <td align="left" style="width:750px;vertical-align: top;"><iframe id="precip" src="https://r42.us/precip"  width=750 height=950></iframe></td>
+        <td align="left" style="width:750px;vertical-align: top;"><div id="wrap"><iframe id="barbs" src="https://r42.us/barbs"  width=750 height=950></iframe></div></td>
+        <td align="left" style="width:750px;vertical-align: top;"><div id="wrap"><iframe id="precip" src="https://r42.us/precip"  width=750 height=950></iframe></div></td>
     </tr><tr>
         <td align="left" style="vertical-align: top;"><iframe id="space" src="https://r42.us/spawx"   width=100% height=950></iframe></td>
         <td></td>
