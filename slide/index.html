@@ -23,6 +23,50 @@ body {
   overflow-x: hidden;
   font-family: Times;
 }
+// Methods
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  {prop} args
+
+bg-vendor(args)
+  background: -webkit-gradient(args)
+  background: -moz-gradient(args)
+  background: gradient(args)
+
+// Some Aesthetic Styling
+.shimmer
+  font-family: "Times"
+  font-weight: 1000
+  font-size: 3em
+  margin: 0 auto
+  padding: 0 140px 0 0 //Necessary for iteration delay :(
+  display: inline
+  margin-bottom: 0
+
+// Shimmer Magic
+.shimmer
+  text-align: center
+  color: rgba(255, 255, 255, 0.1)
+
+  gradientOptions= linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)
+
+  bg-vendor(gradientOptions)
+  vendor(background-size, 125px 100%)
+  vendor(background-clip, text)
+  vendor(animation-name, shimmer)
+  vendor(animation-duration, 2s)
+  vendor(animation-iteration-count, infinite)
+  background-repeat: no-repeat
+  background-position: 0 0
+  background-color: #222
+
+@keyframes shimmer
+  0%
+    background-position: top left
+
+  100%
+    background-position: top right
 
 h1 {
    font-size: 250%
@@ -135,15 +179,15 @@ img:last-of-type {
 	<body>
 
 <div id="title" class="slide header">
-	<h1>KD6KXR</h1><h2>Morgan Hill, CA</h2><h3>CM97ed</h3>
+	<h1 class="shimmer">KD6KXR</h1><h2 class="shimmer">Morgan Hill, CA</h2><h3 class="shimmer">CM97ed</h3>
 </div>
 
 <div id="slide1" class="slide">
   <div class="title">
 	  <h1>CM97 Meteorology Monitor
-		  <ul><h2>High Contrast NEXRAD visualization</h2>
-			  <ul><h2>State and Zone alerts</h2>
-				  <ul><h2>METAR barbs</h2>
+		      <ul><li>      <h2>High Contrast NEXRAD visualization</h2></li>
+			  <li>  <ul><h2>State and Zone alerts</h2></li>
+			  <li>  <ul><h2>METAR barbs</h2></li>
     <p>r42.us</p>
   </div>
 </div>
