@@ -74,22 +74,26 @@ Date.toTZString= function(d, tzp){
     Date.ctclock= setInterval(function(){
         var v=who.firstChild.data,
         t=Date.toTZString('', 'U');
-        if(v!=t) who.firstChild.data=t;
-        
-        
-
+        if(v!=t) {
+          who.firstChild.data=t;
+          t[1]
+          hourtens.innerHTML="<img src=''+t[1]+'.png' alt='Hours Tens'/>";
+          hourones.innerHTML="<img src=''+t[2]+'.png' alt='Hours Ones'/>";
+          minutetens.innerHTML="<img src=''+t[3]+'.png' alt='Minute Tens'/>";
+          minuteones.innerHTML="<img src=''+t[4]+'.png' alt='Minute Ones'/>";
+        }
         
     },1000);
 
 var firstRow=document.getElementById("nixie").rows[0];
-var w=firstRow.insertCell(-1);
-var x=firstRow.insertCell(-1);
-var y=firstRow.insertCell(-1);
-var z=firstRow.insertCell(-1);
-w.innerHTML="<img src='0.png' alt='hello'/>";
-x.innerHTML="<img src='0.png' alt='hello'/>";
-y.innerHTML="<img src='0.png' alt='hello'/>";
-z.innerHTML="<img src='0.png' alt='hello'/>";
+var hourtens=firstRow.insertCell(-1);
+var hourones=firstRow.insertCell(-1);
+var minutetens=firstRow.insertCell(-1);
+var minuteones=firstRow.insertCell(-1);
+hourtens.innerHTML="<img src='0.png' alt='hello'/>";
+hourones.innerHTML="<img src='0.png' alt='hello'/>";
+minutetens.innerHTML="<img src='0.png' alt='hello'/>";
+minuteones.innerHTML="<img src='0.png' alt='hello'/>";
 
 
 who.ondblclick=function(){
