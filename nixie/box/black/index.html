@@ -3,13 +3,15 @@
   <head>
     <style>
       body {background-color: black;}
+      #frame {overflow-x:hidden;width:600px;height:500px;border-style:none;}
+      #wrap {overflow-x:hidden;vertical-align: middle;width:600px;height:500px;border-style:none;}
     </style>
   </head>
   <body>
 
     <div >
-      <div align="center" style="overflow-x:hidden;width:600px;height:500px;border-style:none;">
-        <iframe src="../../box" style="overflow-x:hidden;vertical-align: middle;width:600px;height:500px;border-style:none;">
+      <div align="center" id="frame" >
+        <iframe src="../../box" id="wrap">
         </iframe>
       </div>
     </div>
