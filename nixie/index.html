@@ -7,15 +7,6 @@ p{max-width:300px;font-size:1.25em;}
 </style>
   <script>
   
-var firstRow=document.getElementById("nixie").rows[0];
-var w=firstRow.insertCell(-1);
-var x=firstRow.insertCell(-1);
-var y=firstRow.insertCell(-1);
-var z=firstRow.insertCell(-1);
-w.innerHTML="<img src='myImageURL' alt='hello'/>";
-x.innerHTML="<img src='myImageURL' alt='hello'/>";
-y.innerHTML="<img src='myImageURL' alt='hello'/>";
-z.innerHTML="<img src='myImageURL' alt='hello'/>";
 
 Date.short_months= ['Jan', 'Feb', 'Mar', 'Apr', 'May',
 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -89,6 +80,15 @@ Date.toTZString= function(d, tzp){
         
     },1000);
 
+var firstRow=document.getElementById("nixie").rows[0];
+var w=firstRow.insertCell(-1);
+var x=firstRow.insertCell(-1);
+var y=firstRow.insertCell(-1);
+var z=firstRow.insertCell(-1);
+w.innerHTML="<img src='myImageURL' alt='hello'/>";
+x.innerHTML="<img src='myImageURL' alt='hello'/>";
+y.innerHTML="<img src='myImageURL' alt='hello'/>";
+z.innerHTML="<img src='myImageURL' alt='hello'/>";
 
 
 who.ondblclick=function(){
