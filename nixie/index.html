@@ -72,6 +72,11 @@ Date.toTZString= function(d, tzp){
     var who=document.getElementById('UTCTimer');
     var it=Date.toTZString('', 'U');
     who.firstChild.data= it;
+    var firstRow=document.getElementById("nixie").rows[0];
+    var hourtens=firstRow.insertCell(-1);
+    var hourones=firstRow.insertCell(-1);
+    var minutetens=firstRow.insertCell(-1);
+    var minuteones=firstRow.insertCell(-1);
     hourtens.innerHTML="<img src='"+it[1]+".png' alt='Hours Tens'/>";
     hourones.innerHTML="<img src='"+it[2]+".png' alt='Hours Ones'/>";
     minutetens.innerHTML="<img src='"+it[3]+".png' alt='Minute Tens'/>";
@@ -88,16 +93,6 @@ Date.toTZString= function(d, tzp){
         }
         
     },1000);
-
-var firstRow=document.getElementById("nixie").rows[0];
-var hourtens=firstRow.insertCell(-1);
-var hourones=firstRow.insertCell(-1);
-var minutetens=firstRow.insertCell(-1);
-var minuteones=firstRow.insertCell(-1);
-hourtens.innerHTML="<img src='0.png' alt='hello'/>";
-hourones.innerHTML="<img src='0.png' alt='hello'/>";
-minutetens.innerHTML="<img src='0.png' alt='hello'/>";
-minuteones.innerHTML="<img src='0.png' alt='hello'/>";
 
 
 who.ondblclick=function(){
