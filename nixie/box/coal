@@ -1,0 +1,19 @@
+<!DOCTYPE=html>
+<html>
+  <head>
+    <style>
+      body {background-color: rgb(1,1,1);}
+      #frame {overflow:hidden;width:600px;height:500px;border-style:none;vertical-align:middle;}
+      #wrap {overflow:hidden;width:600px;height:500px;border-style:none;vertical-align:middle;}
+    </style>
+  </head>
+  <body>
+
+    <div >
+      <div align="center" id="frame">
+        <iframe src="../../box" id="wrap" style="vertical-align:middle;overflow:hidden;vertical-align:middle;position:absolute;top:calc(50%-250px);horizontal-align:center;">
+        </iframe>
+      </div>
+    </div>
+  </body>
+</html>
