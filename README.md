@@ -1,10 +1,10 @@
 ### Hi there 👋
 
-- 🏢 I'm a Quartermaster at work.
+# 🏢 I'm a Quartermaster at work.
 
-- 🔭 I’m currently working on https://r42.us
-- 🔭 I’m currently working on http://kd6kxr.us/wx.html 
-- 🔭 I’m currently working on https://github.com/Beep6581/RawTherapee/tree/dev/tools/osx
+# 🔭 I’m currently working on https://r42.us using python
+- 🔭 I’m currently working on https://r42.us/nixie/box/black using javascript
+- 🔭 I’m currently working on https://github.com/Beep6581/RawTherapee/tree/dev/tools/osx using cmake, bash, zsh, github actions, and some c++ here and there.
 - 👯 https://github.com/Beep6581/RawTherapee/commits/dev/tools/osx
 - 💬 Ask me about MacOS app bundle builds via CL
 
@@ -13,7 +13,7 @@
 - ⚡ Fun fact: Have played bassoon in a local community college band at a building dedication with Al Gore in attendance.  
 - ⚡ Fun fact: Have played bassoon during the July 4th fireworks show at Pismo Beach with the USAF band carrying orders signed by *The Governator* Arnold Schwarzenegger. 
 
-- 🌱 I’m currently learning C++, python
+- 🌱 I’m currently learning C++
 
 - 📫 How to reach me: kd6kxr@gmail.com
 
