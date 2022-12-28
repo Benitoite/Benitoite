@@ -1,7 +1,5 @@
 ### Hi there 👋
 
-# 🏢 I'm a Quartermaster at work.
-
 # 🔭 I’m currently working on https://r42.us using python
 - 🔭 I’m currently working on https://r42.us/nixie/box/black using javascript
 - 🔭 I’m currently working on https://github.com/Beep6581/RawTherapee/tree/dev/tools/osx using cmake, bash, zsh, github actions, and some c++ here and there.
