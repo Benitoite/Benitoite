@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animated Girl Scout Cookie Thin Mint with Raspberry Filling</title>
+	<style>
+		.cookie {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background: radial-gradient(#4b8a46, #0b3c14);
+			position: relative;
+			animation: rotate 10s linear infinite;
+			overflow: hidden;
+		}
+
+		.cookie:before {
+			content: "";
+			position: absolute;
+			top: -20px;
+			left: -20px;
+			width: 240px;
+			height: 240px;
+			border-radius: 50%;
+			background: radial-gradient(#d6c8ba, #a89985);
+			transform: rotate(-45deg);
+		}
+
+		.raspberry {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			width: 160px;
+			height: 160px;
+			border-radius: 50%;
+			background: radial-gradient(#b40431, #7a0223);
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+			animation: rotate-raspberry 10s linear infinite;
+			transform-origin: 50% 50%;
+			overflow: hidden;
+		}
+
+		.raspberry:before {
+			content: "";
+			position: absolute;
+			top: 30px;
+			left: 30px;
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			background: radial-gradient(#d6c8ba, #a89985);
+			transform: rotate(-45deg);
+		}
+
+		.raspberry-inner {
+			position: absolute;
+			top: 40px;
+			left: 40px;
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			background: radial-gradient(#fff, #ddd);
+			animation: pulse 2s linear infinite;
+			transform-origin: 50% 50%;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+		}
+
+		@keyframes rotate {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+
+		@keyframes rotate-raspberry {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(-360deg); }
+		}
+
+		@keyframes pulse {
+			0%, 100% { transform: scale(1); }
+			50% { transform: scale(1.2); }
+		}
+	</style>
+</head>
+<body>
+	<div class="cookie">
+		<div class="raspberry">
+			<div class="raspberry-inner"></div>
+		</div>
+	</div>
+</body>
+</html>
