@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tryzub Page</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: blue;
+		}
+		.trident {
+			position: relative;
+			height: 0;
+			width: 300px;
+			border-bottom: 300px solid yellow;
+			border-left: 150px solid transparent;
+			border-right: 150px solid transparent;
+			margin: 100px auto;
+			transform: rotate(180deg);
+			animation: trident 5s infinite;
+		}
+		.trident:before {
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: -150px;
+			height: 0;
+			width: 0;
+			border-top: 150px solid yellow;
+			border-left: 150px solid transparent;
+			border-right: 150px solid transparent;
+		}
+		.trident:after {
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: 0;
+			height: 0;
+			width: 300px;
+			border-top: 150px solid yellow;
+			transform: rotate(180deg);
+		}
+		@keyframes trident {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+	</style>
+</head>
+<body>
+	<div class="trident"></div>
+</body>
+</html>
