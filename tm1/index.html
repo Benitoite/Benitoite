@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animated Girl Scout Cookie</title>
+	<style>
+		.cookie {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background-color: brown;
+			position: relative;
+			overflow: hidden;
+			animation: rotate 10s linear infinite;
+		}
+
+		.cookie:before {
+			content: "";
+			position: absolute;
+			top: -40px;
+			left: -40px;
+			width: 280px;
+			height: 280px;
+			border-radius: 50%;
+			background-color: #f2d8b8;
+			transform: rotate(-45deg);
+		}
+
+		.cookie:after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: -20px;
+			width: 240px;
+			height: 60px;
+			background-color: #fff;
+			transform: rotate(-45deg);
+			z-index: 1;
+		}
+
+		.cookie__text {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			font-size: 24px;
+			font-weight: bold;
+			color: #fff;
+			text-shadow: 1px 1px #000;
+			z-index: 2;
+		}
+
+		@keyframes rotate {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="cookie">
+		<div class="cookie__text">Thin Mints</div>
+	</div>
+</body>
+</html>
