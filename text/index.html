@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Waving and Scrolling Text</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: black;
+			overflow: hidden;
+			font-family: Arial, sans-serif;
+		}
+		
+		#wave-container2 {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			animation: wave5 2s linear infinite;
+		}
+		
+		@keyframes wave5 {
+			0% {
+				transform: translateX(0px) rotate(0deg);
+			}
+			50% {
+				transform: translateX(50px) rotate(15deg);
+			}
+			100% {
+				transform: translateX(0px) rotate(0deg);
+			}
+		}
+		
+		#scroll-container2 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		
+		#scroll-text2 {
+			position: absolute;
+			top: 0;
+			left: 100%;
+			font-size: 12em;
+			font-weight: bold;
+			color: red;
+			animation: scroll 13s linear infinite;
+		}
+		
+		@keyframes scroll2 {
+			0% {
+				left: 100%;
+			}
+			100% {
+				left: -500%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="scroll-container2">
+		<div id="scroll-text2">WAVING AND SCROLLING TEXT</div>
+	</div>
+	
+	<div id="wave-container2">
+		<h1>Waving and Scrolling Text</h1>
+		<p>This text is waving and scrolling!</p>
+	</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yesterday's Headlines</title>
+    <style>
+      .marquee {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .marquee span {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 20s linear infinite;
+      }
+      @keyframes marquee {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(-100%, 0); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="marquee">
+      <span>
+        <!-- Yesterday's Headlines -->
+        <a href="#">Headline 1</a>
+        <a href="#">Headline 2</a>
+        <a href="#">Headline 3</a>
+        <a href="#">Headline 4</a>
+        <a href="#">Headline 5</a>
+        <a href="#">Headline 6</a>
+        <a href="#">Headline 7</a>
+        <a href="#">Headline 8</a>
+        <a href="#">Headline 9</a>
+        <a href="#">Headline 10</a>
+      </span>
+    </div>
+  </body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		#waving-text {
+			font-size: 180px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div id="waving-text">Hello, world!</div>
+	<script>
+		var text = document.getElementById('waving-text');
+		var angle = 1;
+		setInterval(function() {
+			angle += 1;
+			text.style.transform = 'rotate(' + angle + 'deg)';
+		}, 10);
+	</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .flag {
+        font-size: 50px;
+        font-weight: bold;
+        position: relative;
+        display: inline-block;
+        animation: wave 3s infinite;
+      }
+
+      @keyframes wave {
+        0% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(-10deg);
+        }
+        20% {
+          transform: rotate(10deg);
+        }
+        30% {
+          transform: rotate(-10deg);
+        }
+        40% {
+          transform: rotate(10deg);
+        }
+        50% {
+          transform: rotate(-10deg);
+        }
+        60% {
+          transform: rotate(10deg);
+        }
+        70% {
+          transform: rotate(-10deg);
+        }
+        80% {
+          transform: rotate(10deg);
+        }
+        90% {
+          transform: rotate(-10deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="flag">WAVING TEXT</h1>
+  </body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wavy Text</title>
+	<style>
+		@keyframes wave2 {
+			0% { transform: skew(0deg); }
+			50% { transform: skew(50deg); }
+			100% { transform: skew(0deg); }
+		}
+		h1 {
+			animation: wave2 2s infinite;
+		}
+	</style>
+</head>
+<body>
+	<h1>Wavy Text</h1>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Waving and Scrolling Text</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: black;
+			overflow: hidden;
+			font-family: Arial, sans-serif;
+		}
+		
+		#wave-container {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			animation: wave3 2s linear infinite;
+		}
+		
+		@keyframes wave3 {
+			0% {
+				transform: translateX(0px) rotate(0deg);
+			}
+			50% {
+				transform: translateX(50px) rotate(15deg);
+			}
+			100% {
+				transform: translateX(0px) rotate(0deg);
+			}
+		}
+		
+		#scroll-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		
+		#scroll-text {
+			position: absolute;
+			top: 0;
+			left: 100%;
+			font-size: 15em;
+			font-weight: bold;
+			color: white;
+			animation: scroll 14s linear infinite;
+		}
+		
+		@keyframes scroll {
+			0% {
+				left: 100%;
+			}
+			100% {
+				left: -500%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="scroll-container">
+		<div id="scroll-text">WAVING AND SCROLLING TEXT</div>
+	</div>
+	
+	<div id="wave-container">
+		<h1>Waving and Scrolling Text</h1>
+		<p>This text is waving and scrolling!</p>
+	</div>
+</body>
+</html>
