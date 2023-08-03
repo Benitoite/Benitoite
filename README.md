@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-# 🔭 I’m currently working on https://r42.us using python
+# 🔭 [PATREON / Benitoite](https://www.patreon.com/Benitoite) Support macOS photography software builds.
 - 🔭 I’m currently working on https://r42.us/nixie/box/black using javascript
 - 🔭 I’m currently working on https://github.com/Beep6581/RawTherapee/tree/dev/tools/osx using cmake, bash, zsh, github actions, and some c++ here and there.
 - 👯 https://github.com/Beep6581/RawTherapee/commits/dev/tools/osx
