@@ -1,128 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset= "utf-8">
-<title>GMT</title>
-<style>
-body {background-color: rgb(20,35,52);}
-p{max-width:300px;font-size:1.25em;}
-</style>
-  <script>
-  
-
-Date.short_months= ['Jan', 'Feb', 'Mar', 'Apr', 'May',
-'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-Date.tzones={
-    U:['UTC', 0],
-    A:['Atlantic', -240],
-    E:['Eastern', -300],
-    C:['Central', -360],
-    M:['Mountain', -420],
-    P:['Pacific', -480],
-    AK:['Alaska', -540],
-    HA_:['Hawaii-Aleutian (Aleutian)', -600],
-    HA:['Hawaii-Aleutian (Hawaii)', -600, -600]
-};
-Date.dstOff= function(d, tz){
-    var off= tz[1], doff= tz[2],
-    countstart, countend, dstart, dend,
-    y= d.getUTCFullYear();
-    if(y>2006 && off!== doff){
-        countstart= 8, countend= 1,
-        dstart= new Date(Date.UTC(y, 2, 8, 2)),
-        dend= new Date(Date.UTC(y, 10, 1, 2));
-        while(dstart.getUTCDay()!== 0){
-            dstart.setUTCDate(++countstart);
-        }
-        while(dend.getUTCDay()!== 0){
-            dend.setUTCDate(++countend);
-        }
-        dstart.setUTCMinutes(off);
-        dend.setUTCMinutes(off);
-        if(dstart<= d && dend>= d) off= doff;
-    }
-    return off;
-}
-Date.toTZString= function(d, tzp){
-    d= d? new Date(d):new Date();
-    tzp= tzp || 'G';
-    var y, h, m, s, pm= 'pm', off, dst, str,
-    label= tzp+'ST',
-    tz= Date.tzones[tzp.toUpperCase()];
-    if(!tz) tz= ['Greenwich', 0, 0];
-    off= tz[1];
-    if(off){
-        if(tz[2]== undefined) tz[2]= tz[1]+60;
-        dst= Date.dstOff(d, tz);
-        if(dst!== off) label= tzp+'DT';
-        d.setUTCMinutes(d.getUTCMinutes()+dst);
-    }
-    else label= 'GMT';
-    h= d.getUTCHours();
-    m= d.getUTCMinutes();
-    y= d.getUTCFullYear();
-    
-    if(m<10) m= '0'+m;
-    if(h<10) h= '0'+h; 
-    var str= ' '+d.getUTCDate()+' '+Date.short_months[d.getUTCMonth()].toUpperCase();
-    return ' '+h+m+' '+'Z'+str+' '+y;
-}
-
-
-    window.onload=function(){
-    var who=document.getElementById('UTCTimer');
-    var it=Date.toTZString('', 'U');
-    who.firstChild.data= it;
-    var firstRow=document.getElementById("nixie").rows[0];
-    var hourtens=firstRow.insertCell(-1);
-    var hourones=firstRow.insertCell(-1);
-    var minutetens=firstRow.insertCell(-1);
-    var minuteones=firstRow.insertCell(-1);
-    hourtens.innerHTML="<img src='1.png' alt='Hours Tens'/>";
-    hourones.innerHTML="<img src='2.png' alt='Hours Ones'/>";
-    minutetens.innerHTML="<img src='3.png' alt='Minute Tens'/>";
-    minuteones.innerHTML="<img src='4.png' alt='Minute Ones'/>";
-    hourtens.innerHTML="<img src='5.png' alt='Hours Tens'/>";
-    hourones.innerHTML="<img src='6.png' alt='Hours Ones'/>";
-    minutetens.innerHTML="<img src='7.png' alt='Minute Tens'/>";
-    minuteones.innerHTML="<img src='8.png' alt='Minute Ones'/>";  
-    hourtens.innerHTML="<img src='9.png' alt='Hours Tens'/>";
-    hourones.innerHTML="<img src='0.png' alt='Hours Ones'/>";
-      
-    hourtens.innerHTML="<img src='"+it[1]+".png' alt='Hours Tens'/>";
-    hourones.innerHTML="<img src='"+it[2]+".png' alt='Hours Ones'/>";
-    minutetens.innerHTML="<img src='"+it[3]+".png' alt='Minute Tens'/>";
-    minuteones.innerHTML="<img src='"+it[4]+".png' alt='Minute Ones'/>";
-    Date.ctclock= setInterval(function(){
-        var v=who.firstChild.data,
-        t=Date.toTZString('', 'U');
-        if(v!=t) {
-          who.firstChild.data=t;
-          hourtens.innerHTML="<img src='"+t[1]+".png' alt='Hours Tens'/>";
-          hourones.innerHTML="<img src='"+t[2]+".png' alt='Hours Ones'/>";
-          minutetens.innerHTML="<img src='"+t[3]+".png' alt='Minute Tens'/>";
-          minuteones.innerHTML="<img src='"+t[4]+".png' alt='Minute Ones'/>";
-        }
-        
-    },1000);
-
-
-who.ondblclick=function(){
-    clearInterval(Date.ctclock);
-    who.firstChild.data+=' (Clock Stopped)';
-}
-}
-  
-  
-  </script>
+<!DOCTYPE=html>
+<html>
+  <head>
+    <style>
+      body {background-color: coal;}
+    </style>
   </head>
-  
   <body>
-    <!DOCTYPE=html>
-    <div><p style="font-size:20px;font-family: monospace;color:yellow;text-shadow:1px 1px 3px black;text-align:right;" id="UTCTimer">UTC</p></div>
-    <table id="nixie">
-      <tr></tr>
-    </table>
-
-</body>
+    <div>
+      <div style="overflow-y:hidden;">
+        <iframe src="../../nixie" scrolling="no" style="width:509px;border-style:none;position:absolute;left:27px;top:-75px;height:313px;overflow-y:hidden;">
+        </iframe>
+      </div>
+    </div>
+  </body>
 </html>
