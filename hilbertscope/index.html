@@ -1,55 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hilbertscope</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .card {
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: 20 20 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 500px;
-        }
-        .card img {
-            width: 100%;
-            border-radius: 40px;
-            margin-bottom: 15px;
-            box-shadow: 20 20 20px pgba(0,0,0,0.4);
-        }
-        .card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .card p {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #666;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiple Information Frames</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.sidebar-heading {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.sidebar-text {
+  margin-top: 10px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.information-frame {
+  background-color: #e0e0e0;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* For responsiveness */
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+</style>
 </head>
 <body>
 
-<div class="card">
-    <img src="scn.png" alt="hilbertscope image">
-      <h1>About the Hilbert Transform</h1>  <quote>"the Hilbert transform is an allpass filter that provides a 90 degree phase shift at all negative frequencies, and a -90 degree phase shift at all positive frequencies..."</quote>
-    <cite>Smith III, Julius O. (2022, February 28). Hilbert Transform. Retrieved from https://ccrma.stanford.edu/~jos/sasp/Hilbert_Transform.html. Spectral Audio Signal Processing 2011, W3K Publishing, ISBN 978-0-9745607-3-1. Center for Computer Research in Music and Acoustics (CCRMA),   Stanford University</cite>
+<div class="container">
+  <div class="sidebar">
+    <div class="sidebar-heading">Now available for MacOS</div>
+    <div class="sidebar-text">
+      <p>Go to AppStore to download the latest hilbertscope.</p>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="information-frame">
+      <h2>hilbertscope</h2>
+      <p><img src="scn.png" alt="hilbertscope image"></p>
+    </div>
+
+      <div class="main-content">
+    <div class="information-frame">
 <h1>hilbertscope</h1>
-    <p>Hilbert Tranform (x, y) Oscilloscope by Richard E Barber.  The hilbertscope app displays an (x, y) diagram of the input sound using the Hilbert transform on x.  MIDI buttons to play sounds on channel 1 of your selected device, for analysis through your selected audio input. Demonstrates cosine wave interference patterns.  Normally the app will ask for permission to use the microphone audio during the initial run, and you may need to select your audio device and activate the dsp engine before analysis of input will begin.  If the pattern disappears, try toggling the auto-normalizer. </p>
+    <p>Hilbert Tranform (x, y) Oscilloscope by Richard E Barber.  The hilbertscope app displays an (x, y) diagram of the input sound using the Hilbert transform on x.  MIDI buttons to play sounds on channel 1 of your selected device, for analysis through your selected audio input. Demonstrates cosine wave interference patterns.  
+        </div></div>
+    
+    <div class="information-frame">
+
+ <h1>About the Hilbert Transform</h1>  <quote>"the Hilbert transform is an allpass filter that provides a 90 degree phase shift at all negative frequencies, and a -90 degree phase shift at all positive frequencies..."</quote>
+    <cite>Smith III, Julius O. (2022, February 28). Hilbert Transform. Retrieved from https://ccrma.stanford.edu/~jos/sasp/Hilbert_Transform.html. Spectral Audio Signal Processing 2011, W3K Publishing, ISBN 978-0-9745607-3-1. Center for Computer Research in Music and Acoustics (CCRMA),   Stanford University</cite>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sidebar">
+    <div class="sidebar-heading">Suggestions and Requests:<br>FAQs:<br>Contact Us:<br></div>
+    <div class="sidebar-text">
+      <p></p>
+    </div>
+  </div>
+
+
+
+    <div class="information-frame">
+      <h2>Troubleshooting</h2>
+Normally the app will ask for permission to use the microphone audio during the initial run, and you may need to select your audio device and activate the dsp engine before analysis of input will begin.  If the pattern disappears, try toggling the auto-normalizer. </p>
     <h2>for hilbertscope support, contact</h2>
     <p><a href="mailto:kd6kxr@gmail.com">kd6kxr@gmail.com</p>
+
+    </div>
+  </div>
 </div>
 
 </body>
