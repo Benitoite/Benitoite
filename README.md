@@ -1,8 +1,10 @@
 ### Hi there 👋
 
 <a href="https://apps.apple.com/us/app/rawunravel/id6749280635"><img src="rawunravel.GIF"></img></a>
-
-- 🔭 I’m currently working on https://r42.us/nixie/box/black using javascript
+<a href="https://github.com/Benitoite/rawunravel">RAWUnravel- free open source RAW developer.</a>
+<br><hr>
+- 🔭 I’m currently working on
+- https://r42.us/nixie/box/black using javascript
 - 🔭 I’m currently working on https://github.com/Beep6581/RawTherapee/tree/dev/tools/osx using cmake, bash, zsh, github actions, and some c++ here and there.
 - 👯 https://github.com/Beep6581/RawTherapee/commits/dev/tools/osx
 - 💬 Ask me about MacOS app bundle builds via CL
