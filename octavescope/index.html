@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Octave Scope — Support</title>
+  <meta name="description" content="Get help with Octave Scope. Contact support via email, browse FAQs, and read the privacy policy." />
+  <meta name="theme-color" content="#0f172a" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Octave Scope — Support" />
+  <meta property="og:description" content="Help, troubleshooting, and contact for Octave Scope." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-octavescope.png" />
+  <meta property="og:url" content="https://your-domain.example/support" />
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: #11162a;
+      --muted: #94a3b8;
+      --text: #e2e8f0;
+      --brand: #22d3ee;
+      --accent: #a78bfa;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.4);
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    body{
+      margin:0; color:var(--text); background:#0b1020; font:16px/1.55 var(--font);
+    }
+    .wrap{ max-width: 780px; margin: 0 auto; padding: 32px; }
+    header{ display:flex; align-items:center; gap:16px; padding: 24px 0 8px; }
+    .logo{ width:48px; height:48px; border-radius:12px; background:
+      conic-gradient(from 0deg, #22d3ee, #a78bfa, #22d3ee 360deg);
+      box-shadow: 0 0 0 2px #ffffff1f inset, var(--shadow);
+    }
+    h1{ margin:0; font-size: clamp(28px, 5vw, 40px); }
+    .tag{ color: var(--muted); font-size:14px; margin-top:4px }
+    .hero{ margin: 18px 0 26px; padding:24px; background: #0b1226b3; border: 1px solid #33415566; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:16px }
+    .btn{ border:1px solid #33415588; border-radius: 12px; padding: 12px 16px; background: #11162a; color: var(--text); font-weight:600; text-decoration:none; display:inline-flex; align-items:center; }
+    .btn.primary{ background: linear-gradient(180deg,#21cce6,#1bbad1); border-color: #21cce6; color:#0b1020 }
+    .card{ background: var(--panel); border: 1px solid #33415566; border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; margin-top:20px }
+    .card h2{ margin:0 0 10px; font-size: 22px }
+    details{ background:#0b1226; border:1px solid #33415588; border-radius: 12px; padding: 14px 16px }
+    details + details{ margin-top: 8px }
+    summary{ cursor:pointer; font-weight:600 }
+    .footer{ color: var(--muted); font-size: 13px; display:flex; justify-content:space-between; margin-top:20px }
+    .inline-links a{ color: var(--text); text-decoration: underline dotted }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Octave Scope — Support</h1>
+        <div class="tag">Help, troubleshooting, and contact</div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <p>
+        Thanks for using <strong>Octave Scope</strong>! If you’re having trouble or want to suggest a feature, you can email us directly. We typically respond within 2–3 business days.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:support@octavescope.app?subject=Octave%20Scope%20Support">Email Support</a>
+        <a class="btn" href="#faq">View FAQs</a>
+        <a class="btn" href="#privacy">Privacy</a>
+      </div>
+    </section>
+
+    <section class="card" id="faq">
+      <h2>Quick help</h2>
+      <details>
+        <summary>How do I capture stable readings at low notes?</summary>
+        <div style="margin-top:8px">Ensure your device mic isn’t obstructed, reduce room noise, and enable the Low-Note Assist toggle in Settings. For pianos, hold notes a bit longer for stable detection.</div>
+      </details>
+      <details>
+        <summary>The app crashes when I close the window (macOS)</summary>
+        <div style="margin-top:8px">Please update to the latest version. If it persists, email support with your macOS version and steps to reproduce.</div>
+      </details>
+      <details>
+        <summary>Does Octave Scope work offline?</summary>
+        <div style="margin-top:8px">Yes. All processing is on-device. Support email works via your mail app.</div>
+      </details>
+    </section>
+
+    <section class="card" id="privacy">
+      <h2>Privacy</h2>
+      <p><strong>On-device processing.</strong> Octave Scope performs audio analysis entirely on your device. No servers process your data.</p>
+      <p><strong>No tracking SDKs.</strong> The app does not include third-party analytics or advertising SDKs.</p>
+      <p><strong>Email communication.</strong> When you contact support, your email address and message are used solely to assist you. We do not sell or share your information.</p>
+      <p><strong>Contact:</strong> <a href="mailto:support@octavescope.app">support@octavescope.app</a></p>
+    </section>
+
+    <footer class="footer">
+      <div class="inline-links">
+        <span>© <span id="year"></span> Octave Scope</span>
+        <span>·</span>
+        <a href="#privacy">Privacy</a>
+      </div>
+      <div>Support response: 2–3 business days</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
