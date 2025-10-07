@@ -59,11 +59,14 @@
       margin: 0 auto 24px auto; width: fit-content;
       user-select: none;
     }
-    .logo {
-      width: 56px; height: 56px; border-radius: 14px; flex: 0 0 auto;
-      background: conic-gradient(from 210deg, #89b4ff, #7de8d2, #8ef5a5, #e8a7ff, #89b4ff);
-      position: relative; box-shadow: var(--shadow);
-    }
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+  background: #0f141b;
+}
     .logo::before, .logo::after {
       content: "";
       position: absolute; inset: 1px; border-radius: 12px;
@@ -167,13 +170,13 @@
 </head>
 <body>
   <div class="wrap">
-    <header class="site" aria-label="Site header">
-      <div class="logo" aria-hidden="true"></div>
-      <div class="brand">
-        <div class="name" aria-label="Pictodraw">Pictodraw</div>
-        <div class="tag">Support &mdash; we’re here to help</div>
-      </div>
-    </header>
+   <header class="site" aria-label="Site header">
+  <img src="picto.png" alt="Pictodraw logo" class="logo" />
+  <div class="brand">
+    <div class="name" aria-label="Pictodraw">Pictodraw</div>
+    <div class="tag">Support &mdash; we’re here to help</div>
+  </div>
+</header>
 
     <main class="card" role="main">
       <h1>Need help with Pictodraw?</h1>
