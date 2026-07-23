@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GREEDY 10,000 is a lively push-your-luck dice game for friends and family on iPhone and iPad.">
+  <meta name="author" content="Richard E Barber">
+  <meta name="theme-color" content="#111827">
+  <title>GREEDY 10,000 — Dice Game for iPhone and iPad</title>
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --page: #f5f5f7;
+      --surface: rgba(255, 255, 255, 0.84);
+      --text: #1d1d1f;
+      --muted: #5f6368;
+      --line: rgba(0, 0, 0, 0.09);
+      --accent: #d63a2f;
+      --accent-2: #7c3aed;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.10);
+      --radius: 28px;
+      --content-width: 1120px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #09090b;
+        --surface: rgba(28, 28, 30, 0.88);
+        --text: #f5f5f7;
+        --muted: #a1a1aa;
+        --line: rgba(255, 255, 255, 0.11);
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.46);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(255, 86, 48, 0.20), transparent 34rem),
+        radial-gradient(circle at 95% 7%, rgba(128, 74, 255, 0.18), transparent 36rem),
+        var(--page);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+
+    .page-shell {
+      width: min(calc(100% - 32px), var(--content-width));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      place-items: center;
+      padding: 72px 0 52px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding: clamp(36px, 7vw, 86px);
+      border: 1px solid var(--line);
+      border-radius: 38px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.08), transparent 55%),
+        var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(24px) saturate(140%);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero-card::before {
+      width: 320px;
+      height: 320px;
+      right: -100px;
+      top: -100px;
+      background: linear-gradient(135deg, rgba(255, 73, 51, 0.78), rgba(255, 201, 66, 0.38));
+    }
+
+    .hero-card::after {
+      width: 240px;
+      height: 240px;
+      right: 120px;
+      bottom: -150px;
+      background: linear-gradient(135deg, rgba(73, 97, 255, 0.58), rgba(186, 74, 255, 0.34));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 0.82rem;
+      font-weight: 780;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin-bottom: 24px;
+      font-size: clamp(3.1rem, 9vw, 7.2rem);
+      font-weight: 860;
+    }
+
+    h1 span {
+      display: block;
+      background: linear-gradient(100deg, var(--accent), #f59e0b 45%, var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(1.18rem, 2.1vw, 1.55rem);
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-weight: 760;
+      transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: white;
+      background: linear-gradient(110deg, var(--accent), #ef6a34);
+      border-color: transparent;
+      box-shadow: 0 12px 28px rgba(214, 58, 47, 0.28);
+    }
+
+    .button-secondary {
+      background: rgba(127, 127, 127, 0.10);
+    }
+
+    main { padding-bottom: 72px; }
+
+    .section {
+      padding: clamp(54px, 8vw, 96px) 0;
+    }
+
+    .section-header {
+      max-width: 780px;
+      margin-bottom: 34px;
+    }
+
+    .section h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2.25rem, 5vw, 4.5rem);
+      font-weight: 830;
+    }
+
+    .section-intro {
+      margin: 0;
+      font-size: clamp(1.08rem, 1.7vw, 1.3rem);
+      color: var(--muted);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      grid-column: span 6;
+      padding: clamp(26px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 12px 38px rgba(0, 0, 0, 0.06);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .card.wide { grid-column: span 12; }
+
+    .card h3 {
+      margin-bottom: 14px;
+      font-size: clamp(1.45rem, 2.8vw, 2.15rem);
+      font-weight: 800;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .card p + p { margin-top: 1em; }
+
+    .rules {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .rule-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+    }
+
+    .rule-table th,
+    .rule-table td {
+      padding: 16px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .rule-table th {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .rule-table tr:last-child td { border-bottom: 0; }
+
+    .rule-table td:last-child {
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .quote {
+      padding: clamp(34px, 6vw, 70px);
+      border-radius: 34px;
+      background: linear-gradient(135deg, #b42318, #7c2d12 50%, #4c1d95);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .quote p {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(1.65rem, 4vw, 3.4rem);
+      font-weight: 780;
+      letter-spacing: -0.035em;
+      line-height: 1.16;
+    }
+
+    footer {
+      padding: 30px 0 54px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px 26px;
+      align-items: center;
+    }
+
+    .footer-row p { margin: 0; }
+
+    .footer-link {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer-link:hover { text-decoration: underline; }
+
+    @media (max-width: 760px) {
+      .hero {
+        min-height: auto;
+        padding-top: 28px;
+      }
+
+      .hero-card {
+        border-radius: 28px;
+      }
+
+      .card,
+      .card.wide {
+        grid-column: span 12;
+      }
+
+      .rules {
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .rule-table th,
+      .rule-table td {
+        padding: 14px 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="page-shell">
+      <div class="hero-card">
+        <div class="hero-content">
+          <p class="eyebrow">Push your luck. Bank your points. Don’t get greedy.</p>
+          <h1>GREEDY <span>10,000</span></h1>
+          <p class="hero-copy">
+            A lively push-your-luck dice game for friends and family. Gather around
+            one iPhone or iPad, add the players, choose a winning score, and discover
+            who can balance courage with good judgment.
+          </p>
+
+          <div class="actions">
+            <a class="button button-primary"
+               href="mailto:kd6kxr@gmail.com?subject=GREEDY%2010%2C000%20App">
+              Email the Developer
+            </a>
+            <a class="button button-secondary" href="#how-to-play">
+              How to Play
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="how-to-play">
+      <div class="page-shell">
+        <div class="section-header">
+          <p class="eyebrow">One more roll?</p>
+          <h2>Simple choices. Dangerous consequences.</h2>
+          <p class="section-intro">
+            Every turn presents the same delicious choice: protect the points already
+            earned, or roll again and risk losing them all.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>Roll and Keep</h3>
+            <p>
+              Tap the cup to roll six dice, then choose one or more scoring dice to keep.
+              <strong>Keep &amp; Roll</strong> adds those points to the turn subtotal and
+              rolls the remaining dice.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Bank and Pass</h3>
+            <p>
+              <strong>Bank &amp; Pass</strong> protects the entire subtotal, adds it to
+              the player’s permanent score, and hands the turn to the next player.
+              Points safely banked on earlier turns can never be lost.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>GREEDY Roll</h3>
+            <p>
+              A roll with no scoring dice is GREEDY. Every unbanked point from that turn
+              disappears, and the next player takes over.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Hot Dice</h3>
+            <p>
+              When all six dice score, Hot Dice returns a complete set of six to the cup.
+              Continue rolling without giving up the current subtotal and build an enormous turn.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="page-shell">
+        <div class="section-header">
+          <p class="eyebrow">Scoring</p>
+          <h2>Know what every roll is worth.</h2>
+        </div>
+
+        <div class="rules">
+          <table class="rule-table" aria-label="Basic scoring">
+            <thead>
+              <tr>
+                <th>Combination</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Single 1</td><td>100</td></tr>
+              <tr><td>Single 5</td><td>50</td></tr>
+              <tr><td>Three 1s</td><td>1,000</td></tr>
+              <tr><td>Three of any other number</td><td>Number × 100</td></tr>
+              <tr><td>Four of a kind</td><td>2× triple value</td></tr>
+              <tr><td>Five of a kind</td><td>3× triple value</td></tr>
+              <tr><td>Six of a kind</td><td>4× triple value</td></tr>
+            </tbody>
+          </table>
+
+          <table class="rule-table" aria-label="Special scoring">
+            <thead>
+              <tr>
+                <th>Combination</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Straight, 1 through 6</td><td>1,500</td></tr>
+              <tr><td>Three pairs</td><td>1,500</td></tr>
+              <tr><td>Two triplets</td><td>2,500</td></tr>
+              <tr><td>Opening requirement</td><td>750</td></tr>
+              <tr><td>Traditional goal</td><td>10,000</td></tr>
+              <tr><td>Winner</td><td>First to goal</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card-grid" style="margin-top: 22px;">
+          <article class="card wide">
+            <h3>Opening the Game</h3>
+            <p>
+              Before recording a first score, a player must collect at least 750 points
+              during a single turn. Those points may be built over several successful
+              rolls, but they must be banked before a GREEDY roll wipes out the turn.
+              Once a player has opened, any positive valid turn score may be banked.
+              The first player to reach or pass the chosen goal wins immediately.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="page-shell">
+        <div class="section-header">
+          <p class="eyebrow">Made to feel physical</p>
+          <h2>Animated 3D dice bring the table to life.</h2>
+        </div>
+
+        <div class="card-grid">
+          <article class="card wide">
+            <p>
+              Dice gather, shake, tumble, collide, bounce, and settle across the table
+              before revealing the result. Their colorful translucent bodies resemble
+              polished casino acrylic, with subtle reflections and crisp, high-contrast
+              inlaid pips. Tap scoring dice directly or drag them onto the keep line,
+              then arrange the kept dice along the rail. Natural dice and table sounds
+              accompany the action.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Personalized Players</h3>
+            <p>
+              Add the players you need, accept unique randomly chosen first names, or type
+              your own names without duplicates. Give each player an individual dice color
+              from a broad named spectrum including Tomato, Gold, Chartreuse, Aquamarine,
+              Royal Blue, Rebecca Purple, Deep Pink, and many more.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Choose Your Goal</h3>
+            <p>
+              Begin with the traditional 10,000-point goal, choose a quick preset of 1,000,
+              5,000, 10,000, 15,000, or 20,000 points, or adjust the target for a
+              custom-length game.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Living Lobby</h3>
+            <p>
+              Floating 3D dice drift through the lobby and respond as the device is tilted
+              or moved, giving the game personality before the first roll.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Automatic Saving</h3>
+            <p>
+              Games are saved automatically, so a match can continue later without losing
+              its place. Resume ongoing games, review completed games, remove one game, or
+              clear the full history with confirmation.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Game Guide Included</h3>
+            <p>
+              A complete Game Guide is always available from the question-mark button in
+              the lobby, making rules and scoring easy to check without leaving the game.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Optional Spoken Messages</h3>
+            <p>
+              Hear scores, banking, Hot Dice, GREEDY turns, player changes, and victories.
+              Speech begins muted and has its own control, while dice sounds continue
+              independently. Choose an installed voice, adjust its speed, and preview it.
+            </p>
+          </article>
+
+          <article class="card wide">
+            <h3>Designed for iPhone and iPad</h3>
+            <p>
+              Whether played in portrait or landscape, the table, scoreboard, bank, and
+              controls reorganize to stay clear and comfortable. Messages use natural
+              phrases and avoid reading emoji names aloud.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="page-shell">
+        <div class="quote">
+          <p>
+            Six familiar dice become a contest of nerve, timing, and luck—where every
+            successful roll whispers the same dangerous invitation: once more.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-shell footer-row">
+      <p>GREEDY 10,000 &nbsp;•&nbsp; by Richard E Barber</p>
+      <a class="footer-link"
+         href="mailto:kd6kxr@gmail.com?subject=GREEDY%2010%2C000%20App">
+        kd6kxr@gmail.com
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
