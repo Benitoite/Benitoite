@@ -1,0 +1,55 @@
+Sound is more than a waveform. Hilbert3D lets you see the shape inside it.
+
+Turn on the microphone and watch live audio become a luminous, constantly evolving figure. A sung note settles into a clean orbit. A guitar string leaves a textured loop. A voice, room tone, or complex instrument draws its own unmistakable geometry. Hilbert3D transforms sound into motion in real time, giving musicians, students, engineers, and curious listeners a new way to look at what they hear.
+
+SEE SOUND FROM A NEW ANGLE
+
+A conventional oscilloscope plots amplitude against time. Hilbert3D pairs the incoming signal with its Hilbert transform, placing the real component on one axis and the quadrature component on the other. The result is a phase portrait: a closed, living trace that reveals stability, harmonic complexity, modulation, noise, and change at a glance.
+
+A second Hilbert operation supplies another stream of information for color and energy. Instead of a flat line that races across the screen, you get an expressive field of shape, brightness, persistence, and motion. The display feels immediate, but every detail is rooted in the signal.
+
+AN OSCILLOSCOPE WITH MEMORY
+
+The phosphor-style renderer leaves a graceful trail as the sound changes. Stable tones gather into bright, coherent paths while transients and shifting timbres bloom around them. Automatic gain control keeps quiet and loud sources framed inside the circular graticule, and adaptive brightness responds to the signal above the ambient noise floor.
+
+Hilbert3D analyzes several complete periods of a stable pitch and phase-aligns them before drawing. This cycle-synchronous averaging helps steady the picture without freezing it, making the structure of sustained notes easier to see.
+
+A TUNER BUILT INTO THE VIEW
+
+The same screen includes a focused pitch display:
+
+• Fundamental frequency in hertz
+• Nearest chromatic note name
+• Smooth cents offset
+• Analog-style tuning dial
+• Live/held status for confident reading
+
+Use it to check intonation while watching tone shape at the same time. See a note come into tune, then notice how bow pressure, breath, pick position, vibrato, or distortion changes the trace even when the pitch stays put.
+
+MADE FOR EXPLORATION
+
+Try Hilbert3D with:
+
+• Voice, humming, whistling, and singing
+• Guitar, bass, strings, brass, and woodwinds
+• Synthesizers, speakers, effects, and test tones
+• Resonant objects, mechanical sounds, and room ambience
+• Lessons in phase, analytic signals, pitch, and harmonics
+
+There are no files to import and no setup maze. Tap Start, grant microphone access, and make a sound. The black field, subtle graticule, green phosphor core, and color-shifted energy trace keep attention on the signal. Stop the analyzer whenever you want to hold the fading image and study what just happened.
+
+FAST, NATIVE, AND RESPONSIVE
+
+Hilbert3D is built for iPhone and iPad with SwiftUI, AVAudioEngine, Accelerate/vDSP, and Metal. Audio capture, signal processing, pitch estimation, smoothing, and rendering are designed to work together in real time. The display updates fluidly while analysis runs away from the interface, so the instrument feels direct rather than delayed.
+
+The signal path includes high-pass filtering, windowed FIR Hilbert transforms, robust radial normalization, path smoothing, pitch tracking, and a persistent GPU-rendered trace.
+
+PRIVATE BY DESIGN
+
+Your microphone audio stays on your device. Hilbert3D does not record it, save it, upload it, or send it anywhere. Microphone input is used only to create the live visualization and pitch reading you see on screen.
+
+FOR EARS THAT LIKE TO LOOK
+
+Hilbert3D can be a tuner, a teaching aid, a signal experiment, a performance visualizer, or simply a beautiful window into everyday sound. It rewards careful sustained tones, but it is just as happy revealing the unruly signatures of speech, chords, noise, and motion.
+
+Now, every sound has structure. Open Hilbert3D, make a sound, and watch that structure appear.

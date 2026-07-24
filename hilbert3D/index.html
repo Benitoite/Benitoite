@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050806" />
+    <meta
+      name="description"
+      content="Hilbert3D turns live sound into a luminous phase portrait, with real-time pitch, note, and cents readouts for iPhone and iPad."
+    />
+    <meta
+      name="keywords"
+      content="Hilbert3D, Hilbert transform, audio visualizer, phase portrait, oscilloscope, tuner, iPhone, iPad"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hilbert3D — See sound take shape" />
+    <meta
+      property="og:description"
+      content="A real-time Hilbert transform visualizer and pitch display for iPhone and iPad."
+    />
+    <meta property="og:url" content="https://r42.us/hilbert3D/" />
+    <meta
+      property="og:image"
+      content="https://r42.us/hilbert3D/assets/og.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Hilbert3D — See sound take shape"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hilbert3D — See sound take shape" />
+    <meta
+      name="twitter:description"
+      content="Live sound becomes a luminous, evolving phase portrait."
+    />
+    <meta
+      name="twitter:image"
+      content="https://r42.us/hilbert3D/assets/og.png"
+    />
+    <link rel="canonical" href="https://r42.us/hilbert3D/" />
+    <link rel="icon" href="./assets/hilbert3d-icon.png" />
+    <link rel="apple-touch-icon" href="./assets/hilbert3d-icon.png" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+    <title>Hilbert3D — See sound take shape</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Hilbert3D home">
+        <img src="./assets/hilbert3d-icon.png" alt="" />
+        <span>Hilbert3D</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#pitch">Pitch</a>
+        <a href="#privacy">Privacy</a>
+      </nav>
+      <a
+        class="header-contact"
+        href="mailto:kd6kxr@gmail.com?subject=Hilbert3D%20Support%20and%20Questions"
+      >
+        Email support <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Real-time audio for iPhone + iPad</p>
+          <h1>See sound <em>take shape.</em></h1>
+          <p class="hero-lede">
+            Hilbert3D turns the sound around you into a luminous phase portrait,
+            revealing pitch, motion, and harmonic character as they happen.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#how-it-works">
+              Explore the signal <span aria-hidden="true">↓</span>
+            </a>
+            <p><strong>Private by design.</strong> Audio never leaves your device.</p>
+          </div>
+        </div>
+
+        <div class="scope-shell">
+          <div class="scope-topline">
+            <span><i></i> LIVE SIGNAL</span>
+            <strong>HILBERT / XY</strong>
+          </div>
+          <div class="scope-stage">
+            <canvas
+              id="scope-canvas"
+              role="img"
+              aria-label="Animated Hilbert phase portrait with a luminous color trace"
+            ></canvas>
+            <div class="scope-label scope-label-x">REAL / X</div>
+            <div class="scope-label scope-label-y">QUADRATURE / Y</div>
+            <div class="tuner-panel" aria-label="Example pitch reading">
+              <div class="tuner-frequency">
+                <span class="live-dot"></span>
+                <strong id="frequency-readout">440.00</strong>
+                <span>Hz</span>
+              </div>
+              <div class="note-name" id="note-readout">A</div>
+              <div class="cents-dial" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><b id="dial-needle"></b>
+              </div>
+              <div class="cents-value" id="cents-readout">+0.0 cents</div>
+            </div>
+          </div>
+          <div class="scope-controls" aria-label="Visualization controls">
+            <div class="signal-options">
+              <span>Preview signal</span>
+              <button class="signal-button is-active" type="button" data-signal="tone">
+                Pure tone
+              </button>
+              <button class="signal-button" type="button" data-signal="voice">
+                Voice
+              </button>
+              <button class="signal-button" type="button" data-signal="strings">
+                Strings
+              </button>
+            </div>
+            <button class="motion-button" id="motion-button" type="button" aria-pressed="false">
+              Pause motion
+            </button>
+          </div>
+        </div>
+
+        <p class="hero-index" aria-hidden="true">X · H(X) · H(H(X))</p>
+      </section>
+
+      <section class="intro section-shell" id="how-it-works">
+        <p class="section-kicker">A DIFFERENT VIEW OF AUDIO</p>
+        <div class="intro-grid">
+          <h2>
+            Not another waveform.
+            <span>A portrait of the signal.</span>
+          </h2>
+          <div class="intro-copy">
+            <p>
+              Hilbert3D pairs the microphone signal with its Hilbert transform.
+              Real and quadrature components become X and Y, drawing a closed,
+              living path instead of a line moving through time.
+            </p>
+            <p>
+              A second transform adds color and energy. Stable tones form clean
+              orbits; harmonics, breath, distortion, and noise reveal their own
+              more intricate geometry.
+            </p>
+          </div>
+        </div>
+        <dl class="signal-strip">
+          <div>
+            <dt>X</dt>
+            <dd>Live input</dd>
+          </div>
+          <div>
+            <dt>Y</dt>
+            <dd>Hilbert transform</dd>
+          </div>
+          <div>
+            <dt>Z</dt>
+            <dd>Color + energy</dd>
+          </div>
+          <div>
+            <dt>60</dt>
+            <dd>Frames / second</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="phosphor-section">
+        <div class="section-shell phosphor-grid">
+          <div class="phosphor-copy">
+            <p class="section-kicker">PHOSPHOR WITH MEMORY</p>
+            <h2>Watch the sound settle in.</h2>
+            <p>
+              A persistent Metal-rendered trace holds each movement just long
+              enough to reveal it. Cycle-synchronous averaging steadies sustained
+              pitches, while adaptive brightness and automatic gain keep the
+              signal legible from a whisper to an instrument.
+            </p>
+          </div>
+          <div class="trace-study" aria-hidden="true">
+            <div class="study-axis study-axis-x"></div>
+            <div class="study-axis study-axis-y"></div>
+            <div class="study-ring ring-one"></div>
+            <div class="study-ring ring-two"></div>
+            <div class="study-caption">
+              <span>PHOSPHOR DECAY</span>
+              <strong>0.965</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-section section-shell" id="pitch">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">PITCH, IN CONTEXT</p>
+            <h2>A tuner that shows more.</h2>
+          </div>
+          <p>
+            Read frequency, note, and cents while seeing timbre change around
+            the same pitch.
+          </p>
+        </div>
+        <div class="pitch-demo">
+          <div class="pitch-number">
+            <span>FUNDAMENTAL</span>
+            <strong>440.00<small>Hz</small></strong>
+          </div>
+          <div class="pitch-note">
+            <span>NEAREST NOTE</span>
+            <strong>A</strong>
+          </div>
+          <div class="pitch-meter">
+            <div class="meter-labels"><span>−50</span><span>IN TUNE</span><span>+50</span></div>
+            <div class="meter-track">
+              <i></i><i></i><i></i><i></i><i></i><b></b>
+            </div>
+            <p>Hear the pitch. See the character.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="uses-section section-shell">
+        <p class="section-kicker">MAKE A SOUND</p>
+        <div class="uses-list">
+          <article>
+            <span>01</span>
+            <h3>Play</h3>
+            <p>Explore guitar, strings, brass, woodwinds, synths, speakers, and effects.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Sing</h3>
+            <p>Watch breath, vibrato, pitch, and resonance reshape the trace in real time.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Learn</h3>
+            <p>Make phase, analytic signals, harmonics, and intonation visible and immediate.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="privacy-section" id="privacy">
+        <div class="section-shell privacy-grid">
+          <div>
+            <p class="section-kicker">PRIVATE BY DESIGN</p>
+            <h2>Your sound stays yours.</h2>
+          </div>
+          <div>
+            <p>
+              Microphone audio is processed live on your device. Hilbert3D does
+              not record it, save it, upload it, or send it anywhere.
+            </p>
+            <p class="native-stack">
+              SwiftUI <span>•</span> AVAudioEngine <span>•</span> Accelerate/vDSP
+              <span>•</span> Metal
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section section-shell">
+        <img src="./assets/hilbert3d-icon.png" alt="Hilbert3D app icon" />
+        <div>
+          <p class="section-kicker">HILBERT3D</p>
+          <h2>Every sound has structure.</h2>
+          <p>Make a sound and watch that structure appear.</p>
+        </div>
+        <a
+          class="button contact-button"
+          href="mailto:kd6kxr@gmail.com?subject=Hilbert3D%20Support%20and%20Questions"
+        >
+          Support &amp; questions <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand" href="#top">
+        <img src="./assets/hilbert3d-icon.png" alt="" />
+        <span>Hilbert3D</span>
+      </a>
+      <p>Real-time Hilbert transform visualization for iPhone and iPad.</p>
+      <a href="mailto:kd6kxr@gmail.com?subject=Hilbert3D%20Support%20and%20Questions">
+        kd6kxr@gmail.com
+      </a>
+    </footer>
+  </body>
+</html>
