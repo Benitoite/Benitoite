@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ebe7dc">
+  <meta name="description" content="Hilbert Camera is a native iOS instrument that redraws live video as one continuous adaptive Hilbert curve on the GPU.">
+  <meta property="og:title" content="Hilbert Camera — Technical Media Sheet">
+  <meta property="og:description" content="Live camera. One continuous adaptive curve. A native Metal imaging instrument by Richard E Barber.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benitoite.github.io/HilbertCam/">
+  <meta property="og:image" content="https://benitoite.github.io/HilbertCam/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Hilbert Camera technical media sheet with an adaptive Hilbert line forming a camera">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://benitoite.github.io/HilbertCam/og.png">
+  <link rel="canonical" href="https://benitoite.github.io/HilbertCam/">
+  <link rel="stylesheet" href="styles.css">
+  <title>Hilbert Camera — Technical Media Sheet</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to technical sheet</a>
+
+  <div class="page-shell">
+    <header class="masthead">
+      <a class="maker-mark" href="#top" aria-label="Hilbert Camera home">
+        <span class="barcode" aria-hidden="true"></span>
+        <span>REB / FIELD MEDIA</span>
+      </a>
+      <p class="document-id">Technical media sheet <span>HC–09</span></p>
+      <div class="issue-block">
+        <span>Issue 01</span>
+        <time datetime="2026-07">07 / 2026</time>
+      </div>
+    </header>
+
+    <nav class="index-nav" aria-label="Page index">
+      <span>INDEX</span>
+      <a href="#system">01 / System</a>
+      <a href="#modes">02 / Modes</a>
+      <a href="#capture">03 / Capture</a>
+      <a href="#origin">04 / Origin</a>
+      <a href="#contact">05 / Contact</a>
+    </nav>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Native imaging instrument / iOS 17+</p>
+          <h1 id="hero-title">
+            <span>Hilbert</span>
+            <span class="title-indent">Camera</span>
+          </h1>
+          <p class="hero-deck">
+            Live video, redrawn as <strong>one continuous adaptive line</strong>.
+            A camera that sees in recursion.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/Benitoite/HilbertCam" target="_blank" rel="noreferrer">
+              View source <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button-quiet" href="#system">Read field sheet <span aria-hidden="true">↓</span></a>
+          </div>
+          <dl class="hero-specs">
+            <div>
+              <dt>Traversal</dt>
+              <dd>Order 09</dd>
+            </div>
+            <div>
+              <dt>Pipeline</dt>
+              <dd>Metal / GPU</dd>
+            </div>
+            <div>
+              <dt>Motion</dt>
+              <dd>60 fps</dd>
+            </div>
+          </dl>
+          <p class="hero-credit">
+            Native conversion by Richard E Barber · Inspired by
+            <a href="https://yourquietfriend.blogspot.com/2026/07/code-of-adaptive-continuous-hilbert.html" target="_blank" rel="noreferrer">Tin Tran’s web routine</a>
+            and <a href="https://discuss.pixls.us/t/variable-density-hilbert-curve/24903/3" target="_blank" rel="noreferrer">Lyle Kroll’s inquiry</a>.
+          </p>
+        </div>
+
+        <div class="instrument">
+          <div class="instrument-label">
+            <span>Live signal model</span>
+            <span>HC–09 / M1</span>
+          </div>
+          <div class="screen-frame">
+            <canvas id="hero-curve" class="curve-canvas" data-mode="1" aria-label="Adaptive Hilbert curve demonstration in Mode 1"></canvas>
+            <div class="screen-hud screen-hud-top">
+              <span><i aria-hidden="true"></i> LIVE</span>
+              <span>60 FPS</span>
+            </div>
+            <div class="screen-hud screen-hud-bottom">
+              <span>ORDER 09</span>
+              <span id="hero-point-count">00000 PTS</span>
+            </div>
+            <div class="focus-brackets" aria-hidden="true"></div>
+          </div>
+          <div class="mode-control" role="group" aria-label="Preview rendering mode">
+            <button class="mode-button is-active" type="button" data-preview-mode="1" aria-pressed="true">
+              <span>01</span> Black / white
+            </button>
+            <button class="mode-button" type="button" data-preview-mode="2" aria-pressed="false">
+              <span>02</span> White / black
+            </button>
+          </div>
+          <p class="instrument-note">Synthetic signal preview. Tap a mode to reverse tone and density response.</p>
+        </div>
+
+        <p class="vertical-note" aria-hidden="true">ADAPTIVE / CONTINUOUS / REAL TIME</p>
+      </section>
+
+      <div class="ticker" aria-label="Key capabilities">
+        <div>
+          <span>One line</span><i aria-hidden="true">✦</i>
+          <span>Zero-copy frames</span><i aria-hidden="true">✦</i>
+          <span>Order 09</span><i aria-hidden="true">✦</i>
+          <span>Full-screen capture</span><i aria-hidden="true">✦</i>
+          <span>One line</span><i aria-hidden="true">✦</i>
+          <span>Zero-copy frames</span><i aria-hidden="true">✦</i>
+          <span>Order 09</span><i aria-hidden="true">✦</i>
+          <span>Full-screen capture</span>
+        </div>
+      </div>
+
+      <section class="section system-section" id="system" aria-labelledby="system-title">
+        <div class="section-heading">
+          <p class="section-number">01</p>
+          <div>
+            <p class="kicker">Signal architecture</p>
+            <h2 id="system-title">The frame never leaves the GPU.</h2>
+          </div>
+          <p class="section-summary">
+            Capture, interpret, collapse, draw. The pipeline turns a camera texture into a single
+            geometric path without a CPU image round-trip.
+          </p>
+        </div>
+
+        <ol class="signal-path">
+          <li>
+            <span class="step-index">A / 01</span>
+            <div class="step-symbol symbol-frame" aria-hidden="true"></div>
+            <h3>Acquire</h3>
+            <p><code>AVCaptureVideoDataOutput</code> supplies BGRA pixel buffers from the active camera.</p>
+            <span class="step-meta">INPUT / BGRA</span>
+          </li>
+          <li>
+            <span class="step-index">A / 02</span>
+            <div class="step-symbol symbol-cache" aria-hidden="true"></div>
+            <h3>Expose</h3>
+            <p><code>CVMetalTextureCache</code> presents each buffer as a zero-copy Metal texture.</p>
+            <span class="step-meta">TRANSFER / 0×</span>
+          </li>
+          <li>
+            <span class="step-index">A / 03</span>
+            <div class="step-symbol symbol-grid" aria-hidden="true"></div>
+            <h3>Adapt</h3>
+            <p>An order-9 compute traversal stops early in light cells and dives deeper in dark cells.</p>
+            <span class="step-meta">DEPTH / 2–9</span>
+          </li>
+          <li>
+            <span class="step-index">A / 04</span>
+            <div class="step-symbol symbol-line" aria-hidden="true"></div>
+            <h3>Render</h3>
+            <p>Repeated points collapse on-GPU; square-capped quads draw the remaining continuous path.</p>
+            <span class="step-meta">OUTPUT / 1 LINE</span>
+          </li>
+        </ol>
+
+        <div class="control-matrix">
+          <div class="matrix-intro">
+            <p class="stamp">FIELD ADJUSTABLE</p>
+            <h3>Seven controls.<br>Two memories.</h3>
+            <p>
+              Mode 1 and Mode 2 keep independent profiles. The app automatically recalls both profiles
+              and the last selected mode at launch.
+            </p>
+          </div>
+          <div class="matrix-table-wrap">
+            <table>
+              <caption class="visually-hidden">Hilbert Camera controls and their purpose</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Control</th>
+                  <th scope="col">Function</th>
+                  <th scope="col">Range / state</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Line width</th><td>Sets device-pixel stroke geometry</td><td>Continuous</td></tr>
+                <tr><th scope="row">Light detail</th><td>Sets the coarsest visible structure</td><td>Depth control</td></tr>
+                <tr><th scope="row">Dark detail</th><td>Adds fine recursive turns in shadow</td><td>Max. 09</td></tr>
+                <tr><th scope="row">Response</th><td>Biases recursion toward darkness</td><td>Continuous</td></tr>
+                <tr><th scope="row">Contrast</th><td>Expands luminance separation</td><td>Continuous</td></tr>
+                <tr><th scope="row">Smoothing</th><td>Stabilizes changing frame detail</td><td>Continuous</td></tr>
+                <tr><th scope="row">Invert</th><td>Reverses the rendered result</td><td>On / off</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section modes-section" id="modes" aria-labelledby="modes-title">
+        <div class="section-heading on-dark">
+          <p class="section-number">02</p>
+          <div>
+            <p class="kicker">Dual render profiles</p>
+            <h2 id="modes-title">Same path.<br>Opposite signal.</h2>
+          </div>
+          <p class="section-summary">
+            Both modes use identical aspect-fill camera framing and stroke geometry. Density and tone
+            decide what the line reveals.
+          </p>
+        </div>
+
+        <div class="mode-plates">
+          <article class="mode-plate mode-one">
+            <div class="plate-header">
+              <span class="plate-number">MODE / 01</span>
+              <span>MASTER POSITIVE</span>
+            </div>
+            <canvas class="curve-canvas plate-canvas" data-mode="1" aria-label="Mode 1 black adaptive curve on a white field"></canvas>
+            <div class="plate-copy">
+              <h3>Black path / white field</h3>
+              <p>Bright areas hold a coarse line. Dark regions resolve into progressively denser turns.</p>
+            </div>
+          </article>
+          <article class="mode-plate mode-two">
+            <div class="plate-header">
+              <span class="plate-number">MODE / 02</span>
+              <span>MASTER REVERSE</span>
+            </div>
+            <canvas class="curve-canvas plate-canvas" data-mode="2" aria-label="Mode 2 white adaptive curve on a black field"></canvas>
+            <div class="plate-copy">
+              <h3>White path / black field</h3>
+              <p>Bright regions receive the dense curve while darkness keeps a broad, spare white line.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="orientation-strip">
+          <span class="orientation-icon" aria-hidden="true">↻</span>
+          <p><strong>Upright by design.</strong> AVFoundation’s rotation coordinator keeps both feeds correctly oriented as the device moves.</p>
+          <span class="orientation-meta">FRONT / MIRRORED<br>BACK / DIRECT</span>
+        </div>
+      </section>
+
+      <section class="section capture-section" id="capture" aria-labelledby="capture-title">
+        <div class="section-heading">
+          <p class="section-number">03</p>
+          <div>
+            <p class="kicker">Direct media output</p>
+            <h2 id="capture-title">Save the image.<br>Leave the interface.</h2>
+          </div>
+          <p class="section-summary">
+            The photo and movie controls capture the finished Metal rendering—not the app chrome—then
+            write the completed media to Photos.
+          </p>
+        </div>
+
+        <div class="capture-grid">
+          <article class="capture-card photo-card">
+            <div class="capture-topline">
+              <span>STILL / NATIVE</span>
+              <span class="red-dot" aria-hidden="true"></span>
+            </div>
+            <div class="capture-icon aperture" aria-hidden="true"><i></i></div>
+            <h3>Native-pixel stills</h3>
+            <p>Full-display screenshots preserve the rendered output at the screen’s native pixel resolution.</p>
+            <dl>
+              <div><dt>UI overlay</dt><dd>Excluded</dd></div>
+              <div><dt>Feedback</dt><dd><code>clix.wav</code></dd></div>
+              <div><dt>Destination</dt><dd>Photos</dd></div>
+            </dl>
+          </article>
+          <article class="capture-card movie-card">
+            <div class="capture-topline">
+              <span>MOTION / FULL FRAME</span>
+              <span class="red-dot pulse" aria-hidden="true"></span>
+            </div>
+            <div class="capture-icon tape" aria-hidden="true"><i></i><i></i></div>
+            <h3>60 fps movies</h3>
+            <p>The full-screen render is encoded as H.264 video with synchronized AAC microphone audio.</p>
+            <dl>
+              <div><dt>Picture</dt><dd>H.264 / 60 fps</dd></div>
+              <div><dt>Sound</dt><dd>AAC microphone</dd></div>
+              <div><dt>Destination</dt><dd>Photos</dd></div>
+            </dl>
+          </article>
+          <aside class="field-note">
+            <p class="field-note-label">FIELD NOTE / 03–C</p>
+            <p>What you operate and what you save are deliberately separate layers.</p>
+            <span>CONTROLS ≠ OUTPUT</span>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section origin-section" id="origin" aria-labelledby="origin-title">
+        <div class="section-heading">
+          <p class="section-number">04</p>
+          <div>
+            <p class="kicker">Source history / annotated</p>
+            <h2 id="origin-title">A five-year question becomes a camera.</h2>
+          </div>
+          <p class="section-summary">
+            The routine grew through an open-image community exchange: a request for a structured,
+            single-line fill; a browser experiment; public code; then a native real-time interpretation.
+          </p>
+        </div>
+
+        <div class="origin-layout">
+          <div class="timeline" aria-label="Project inspiration timeline">
+            <article class="timeline-entry">
+              <time datetime="2021-05-08">08 MAY 2021</time>
+              <span class="timeline-code">Q / 001</span>
+              <h3>The inquiry</h3>
+              <p>
+                Lyle Kroll asks the G’MIC community about a variable-density Hilbert preset: a single
+                line fill related to traveling-salesman renderings, but with a more structured path and,
+                ideally, other fill formulas.
+              </p>
+            </article>
+            <article class="timeline-entry">
+              <time datetime="2026-07-26">26 JUL 2026</time>
+              <span class="timeline-code">P / 002</span>
+              <h3>The working browser tool</h3>
+              <p>
+                Kroll returns with Tin Tran’s Adaptive Continuous Hilbert Image Maker, produced through
+                conversational coding and demonstrated with a 4000 × 4000 single-line result.
+              </p>
+            </article>
+            <article class="timeline-entry">
+              <time datetime="2026-07-27">27–28 JUL 2026</time>
+              <span class="timeline-code">S / 003</span>
+              <h3>Code, license, extensions</h3>
+              <p>
+                When HIRAM asks for the repository and FOSS status, Tran publishes the ChatGPT-generated
+                routine “as is.” A specific MIT or GPL license is asked about but is not resolved in the
+                captured discussion.
+              </p>
+            </article>
+            <article class="timeline-entry timeline-entry-result">
+              <time datetime="2026-07">JUL 2026</time>
+              <span class="timeline-code">HC / 009</span>
+              <h3>The native instrument</h3>
+              <p>
+                Richard E Barber translates the adaptive idea into live iOS camera processing: Metal
+                compute, zero-copy textures, continuous output, stills, and synchronized movies.
+              </p>
+            </article>
+          </div>
+
+          <aside class="discussion-notes">
+            <div class="notes-header">
+              <span>DISCUSSION ABSTRACT</span>
+              <span>REV. A</span>
+            </div>
+            <h3>What the group was really after</h3>
+            <p>
+              Not simply a standard Hilbert curve, but a <strong>structured path whose local density
+              follows image tone while the fill remains one unbroken line.</strong>
+            </p>
+            <ul>
+              <li>Kroll distinguishes the idea from existing traveling-salesman / Voronoi line fills.</li>
+              <li>He floats Peano and other space-filling families as possible future choices.</li>
+              <li>Doug-Phoenix points to G’MIC’s newer <code>shape_hilbert</code> command as adjacent groundwork.</li>
+              <li>G’MIC’s David Tschumperlé says the adaptive concept is feasible there, with implementation time needed.</li>
+            </ul>
+            <div class="source-links">
+              <a href="https://discuss.pixls.us/t/variable-density-hilbert-curve/24903/3" target="_blank" rel="noreferrer">
+                Read the Pixls.us thread <span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://yourquietfriend.blogspot.com/2026/07/code-of-adaptive-continuous-hilbert.html" target="_blank" rel="noreferrer">
+                Inspect Tin Tran’s published routine <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <p class="source-note">
+              Summary reflects the linked posts as available 28 July 2026. “Native instrument” is this
+              project’s implementation step, not a claim made by the forum participants.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-title">
+        <p>Designed to make the invisible traversal visible.</p>
+        <a href="mailto:kd6kxr@gmail.com">Email Richard <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer-meta">
+        <p>Hilbert Camera<br>Richard E Barber</p>
+        <p>Native iOS / Metal<br>Order 09 / 60 fps</p>
+        <p><a href="https://github.com/Benitoite/HilbertCam" target="_blank" rel="noreferrer">GitHub repository ↗</a><br>© 2026 Richard E Barber</p>
+      </div>
+      <div class="footer-registration" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
