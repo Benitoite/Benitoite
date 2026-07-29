@@ -844,6 +844,7 @@ tbody td:last-child {
 
 .plate-canvas {
   min-height: 520px;
+  max-height: 900px;
   border: 1px solid #666963;
 }
 
