@@ -109,13 +109,5 @@
     renderTimer = window.setTimeout(renderAll, 100);
   }, { passive: true });
 
-  if ("ResizeObserver" in window) {
-    const observer = new ResizeObserver(() => {
-      window.clearTimeout(renderTimer);
-      renderTimer = window.setTimeout(renderAll, 60);
-    });
-    canvases.forEach((canvas) => observer.observe(canvas));
-  }
-
   renderAll();
 })();
