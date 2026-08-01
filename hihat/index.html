@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0a0b0a">
+    <meta
+      name="description"
+      content="HI-HAT is a responsive, physically modeled hi-hat for iPhone and iPad. Strike, scrape, choke, shape, and work the pedal in real time."
+    >
+    <meta property="og:title" content="HI-HAT — Physical Instrument">
+    <meta
+      property="og:description"
+      content="Touch the bronze. Hear it behave. A physically modeled hi-hat for iPhone and iPad."
+    >
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>HI-HAT — Physical Instrument</title>
+    <link rel="icon" href="assets/hi-hat-icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/hi-hat-icon.png">
+    <link rel="preload" href="assets/hi-hat-app.jpg" as="image" fetchpriority="high">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="HI-HAT home">
+        <span>HI-HAT</span>
+        <small>03 / 15</small>
+      </a>
+      <a class="header-link" href="#play">How it plays</a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> Physical instrument for iPhone + iPad</p>
+          <h1 id="hero-title">Touch the bronze.<br><em>Hear it behave.</em></h1>
+          <p class="hero-lede">
+            A playable hi-hat synthesized in real time. Strike the bell, bow,
+            or edge. Scrape, choke, shape the hardware, and work an expressive
+            pedal with your fingers.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#play">Explore the instrument <span aria-hidden="true">↓</span></a>
+            <span class="platform-note">Made for touch</span>
+          </div>
+        </div>
+
+        <div class="hero-device reveal" aria-label="HI-HAT app shown on iPhone">
+          <div class="device-halo" aria-hidden="true"></div>
+          <div class="phone-shell">
+            <img
+              src="assets/hi-hat-app.jpg"
+              width="591"
+              height="1280"
+              alt="HI-HAT app interface showing a bronze cymbal, pedal, position selector, and sound controls"
+            >
+          </div>
+          <div class="sound-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+
+        <div class="hero-index" aria-hidden="true">
+          <span>Physical instrument</span>
+          <strong>03</strong>
+        </div>
+      </section>
+
+      <div class="motion-strip" aria-label="Instrument gestures">
+        <div>
+          <span>Strike</span><i></i><span>Scrape</span><i></i><span>Choke</span><i></i>
+          <span>Pedal</span><i></i><span>Shape</span><i></i><span>Strike</span><i></i>
+          <span>Scrape</span><i></i><span>Choke</span><i></i><span>Pedal</span><i></i><span>Shape</span>
+        </div>
+      </div>
+
+      <section class="play-section" id="play" aria-labelledby="play-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> The whole instrument</p>
+          <h2 id="play-title">Every gesture<br>meets bronze.</h2>
+          <p>
+            HI-HAT responds to where, how, and when you touch it. Articulations
+            flow into one another instead of firing isolated recordings.
+          </p>
+        </div>
+
+        <div class="gesture-grid">
+          <article class="gesture-card reveal">
+            <span class="card-number">01</span>
+            <div class="gesture-mark strike-mark" aria-hidden="true"><i></i></div>
+            <h3>Strike</h3>
+            <p>Move from a clear bell to the body of the bow and the explosive edge. Position, energy, and touch color every hit.</p>
+          </article>
+          <article class="gesture-card reveal">
+            <span class="card-number">02</span>
+            <div class="gesture-mark scrape-mark" aria-hidden="true"><i></i><i></i><i></i></div>
+            <h3>Scrape</h3>
+            <p>Drag across the surface for a continuous bronze friction sound that follows the speed and path of your finger.</p>
+          </article>
+          <article class="gesture-card reveal">
+            <span class="card-number">03</span>
+            <div class="gesture-mark choke-mark" aria-hidden="true"><i></i></div>
+            <h3>Choke</h3>
+            <p>Hold the cymbal to grab its ring. Keep one finger down and strike with another for tight, hand-muted hits.</p>
+          </article>
+          <article class="gesture-card pedal-card reveal">
+            <span class="card-number">04</span>
+            <div class="gesture-mark pedal-mark" aria-hidden="true"><i></i></div>
+            <h3>Work the pedal</h3>
+            <p>Press for a chick, hold for closed pressure, and release quickly for a splash. Touch position changes leverage and speed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="model-section" aria-labelledby="model-title">
+        <div class="model-visual reveal" aria-hidden="true">
+          <span class="orbit orbit-one"></span>
+          <span class="orbit orbit-two"></span>
+          <span class="orbit orbit-three"></span>
+          <span class="model-core"></span>
+          <span class="model-label label-one">collision</span>
+          <span class="model-label label-two">resonance</span>
+          <span class="model-label label-three">friction</span>
+        </div>
+        <div class="model-copy reveal">
+          <p class="eyebrow"><span></span> Real-time physical synthesis</p>
+          <h2 id="model-title">No sample grid.<br><em>One living model.</em></h2>
+          <p>
+            Vibrating plates, resonant modes, stick contact, rim motion,
+            friction, damping, and cymbal collision are calculated while you
+            play. A ringing hit can be caught by hand. An open note can tighten
+            under the pedal. Repeated strikes keep their variation and motion.
+          </p>
+          <div class="model-stats" aria-label="Synthesis features">
+            <div><strong>3</strong><span>playing zones</span></div>
+            <div><strong>0</strong><span>prerecorded hits</span></div>
+            <div><strong>∞</strong><span>touch variations</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shape-section" aria-labelledby="shape-title">
+        <div class="shape-copy reveal">
+          <p class="eyebrow"><span></span> Shape the hardware</p>
+          <h2 id="shape-title">Your setup.<br>Your response.</h2>
+          <p>
+            Tune the character and the mechanics together. Your setup is saved
+            automatically and ready the next time you play.
+          </p>
+        </div>
+
+        <div class="control-panel reveal" aria-label="HI-HAT sound-shaping controls">
+          <div class="panel-top">
+            <span>Instrument configuration</span>
+            <span class="status-light"><i></i> Live</span>
+          </div>
+          <div class="control-row">
+            <div><strong>Diameter</strong><small>Size + pitch</small></div>
+            <span class="control-line"><i style="--level: 72%"></i><b style="--level: 72%"></b></span>
+            <output>14.5″</output>
+          </div>
+          <div class="control-row">
+            <div><strong>Rest gap</strong><small>Travel + openness</small></div>
+            <span class="control-line"><i style="--level: 8%"></i><b style="--level: 8%"></b></span>
+            <output>1 mm</output>
+          </div>
+          <div class="control-row">
+            <div><strong>Bright</strong><small>Air + attack</small></div>
+            <span class="control-line"><i style="--level: 53%"></i><b style="--level: 53%"></b></span>
+            <output>53</output>
+          </div>
+          <div class="control-row">
+            <div><strong>Decay</strong><small>Short + long</small></div>
+            <span class="control-line"><i style="--level: 14%"></i><b style="--level: 14%"></b></span>
+            <output>04</output>
+          </div>
+          <div class="control-row">
+            <div><strong>Tension</strong><small>Loose + clamp</small></div>
+            <span class="control-line"><i style="--level: 51%"></i><b style="--level: 51%"></b></span>
+            <output>51</output>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing-section" aria-labelledby="closing-title">
+        <div class="closing-cymbal" aria-hidden="true">
+          <i></i><i></i><i></i><span></span>
+        </div>
+        <div class="closing-copy reveal">
+          <p class="eyebrow"><span></span> Built to be played</p>
+          <h2 id="closing-title">One instrument.<br>Two cymbals.<br><em>A surprising range.</em></h2>
+          <p>Finger drum, practice a rhythm, sketch a beat, or simply explore a responsive instrument. Put on headphones and touch the bronze.</p>
+          <div class="availability">
+            <span>iPhone</span><i></i><span>iPad</span><i></i><span>Stereo</span><i></i><span>Haptics</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="wordmark footer-wordmark" href="#top">
+          <span>HI-HAT</span>
+          <small>Physical instrument · 03 / 15</small>
+        </a>
+        <p>Real-time bronze for iPhone and iPad.</p>
+      </div>
+      <div class="footer-contact">
+        <span>Questions, support, or release news</span>
+        <a href="mailto:kd6kxr@gmail.com">kd6kxr@gmail.com <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="copyright">© <span id="year">2026</span> HI-HAT</p>
+    </footer>
+  </body>
+</html>
